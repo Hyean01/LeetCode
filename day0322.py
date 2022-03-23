@@ -15,7 +15,23 @@ def searchInsert(numlist, num):
 
     return left
 
+def isBadVersion(n):
+    if n >= 5:
+        return True
+    else:
+        return False
+def firstbadversion(n):
+    left, right = 1, n
+    while (left < right):
+        mid = int(left + (right-left)/2)
+        if isBadVersion(mid):
+            right = mid
+        else:
+            left = mid + 1
+
+    return left
+
 
 if __name__ == '__main__':
     res = searchInsert([1,2,5,6,8], 7)
-    print(res)
+    print(firstbadversion(19))
